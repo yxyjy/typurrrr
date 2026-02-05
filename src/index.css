@@ -1,68 +1,75 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: "mynerve";
+  src: url(assets/fonts/Mynerve-Regular.ttf) format("truetype");
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+@font-face {
+  font-family: "firacode";
+  src: url(assets/fonts/FiraCode-Regular.ttf) format("truetype");
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 50px;
+}
+
+:root {
+  font-family: "mynerve", system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+p {
+  font-family: "firacode", monospace;
 }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  font-family: "firacode", monospace;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+span.correct-char {
+  color: rgb(74, 224, 224);
+}
+
+span.wrong-char {
+  color: #e4a752;
+}
+
+span.active {
+  border-bottom: rgb(74, 224, 224) 3px solid;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    border-bottom: rgb(0, 185, 185) 3px solid;
   }
-  a:hover {
-    color: #747bff;
+  50% {
+    border-bottom: rgba(0, 185, 185, 0) 3px solid;
   }
-  button {
-    background-color: #f9f9f9;
+  100% {
+    border-bottom: rgb(0, 185, 185) 3px solid;
   }
+}
+
+.input-field {
+  margin: auto;
+  width: 41rem;
+  /* padding: rem; */
+  position: absolute;
+  outline: none;
+  z-index: -999;
+  opacity: 0;
 }
